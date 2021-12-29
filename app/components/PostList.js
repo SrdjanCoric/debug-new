@@ -12,7 +12,7 @@ const PostList = () => {
 
   useEffect(() => {
     dispatch(loadPosts());
-  }, []);
+  }, [dispatch]);
 
   const getPosts = (page) => {
     dispatch(fetchPosts({ page }));

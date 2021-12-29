@@ -1,10 +1,7 @@
-import {
-  ChangeSort,
-} from '../actions/sort';
-
+import { ChangeSort } from "../actions/sort";
 
 const InitialState = {
-  sort: 'old',
+  sort: "old",
 };
 
 export default function posts(state = InitialState, action) {

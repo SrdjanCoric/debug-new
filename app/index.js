@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunkMiddleware from "redux-thunk";
 
-import App from './components/App';
-import posts from './reducers/posts';
-import sort from './reducers/sort';
+import App from "./components/App";
+import posts from "./reducers/posts";
+import sort from "./reducers/sort";
 
 function render() {
   const store = createStore(
@@ -18,12 +18,12 @@ function render() {
     applyMiddleware(thunkMiddleware)
   );
 
-
-  ReactDOM.render((
+  ReactDOM.render(
     <Provider store={store}>
       <App />
-    </Provider>
-  ), document.getElementById('app'));
+    </Provider>,
+    document.getElementById("app")
+  );
 }
 
 render();

@@ -24,17 +24,19 @@ const Options = [
 const PostSort = () => {
   const { sort } = useSelector((state) => state.sort);
   const [menuOpen, setMenuOpen] = useState(false);
-
   const dispatch = useDispatch();
 
-  const handleChangeSort = useCallback((sort) => {
-    dispatch(changeSort(sort));
-    dispatch(fetchPosts({ sort }));
-    dispatch(recountVotes());
-  });
+  const handleChangeSort = useCallback(
+    (sort) => {
+      dispatch(changeSort(sort));
+      dispatch(fetchPosts({ sort }));
+      dispatch(recountVotes());
+      setMenuOpen(false);
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
-    setMenuOpen(false);
     handleChangeSort(sort);
   }, [sort, handleChangeSort]);
 
@@ -63,7 +65,7 @@ const PostSort = () => {
         </div>
       );
     });
-
+    console.log("in between", menuOpen);
     return (
       <div className="dropdown">
         <div className="sorts">
