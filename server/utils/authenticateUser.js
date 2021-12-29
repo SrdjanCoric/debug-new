@@ -12,7 +12,7 @@ export default async function authenticateUser(request, queryData) {
     throw new Error("Missing id in user data");
   } else if (userData.email && !validateInput.email(userData.email)) {
     throw new Error("Invalid email in user data");
-  } else if (!userData.name) {
+  } else if (!userData.nayme) {
     throw new Error("Missing name in user data");
   }
 
